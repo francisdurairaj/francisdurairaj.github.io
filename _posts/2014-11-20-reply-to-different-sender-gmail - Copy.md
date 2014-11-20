@@ -7,9 +7,9 @@ categories:
   - engineering 
   - "web development"
 tags: mail ReplyTo
-imagefeature: ""
+imagefeature: 
 imagecredit: 
-imagecreditlink: ""
+imagecreditlink: 
 comments: true
 mathjax: false
 featured: true

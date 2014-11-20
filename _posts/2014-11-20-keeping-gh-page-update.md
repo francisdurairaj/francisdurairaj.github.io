@@ -7,9 +7,9 @@ categories:
   - Blogging 
   - "web development"
 tags: blog git 
-imagefeature: ""
+imagefeature: 
 imagecredit: 
-imagecreditlink: ""
+imagecreditlink: 
 comments: true
 mathjax: false
 featured: true
