@@ -1,38 +1,55 @@
 ---
 layout: post
-title: First Commit
-description: "Its ON, baby"
-headline: "Let's Fire up the Engines"
-categories: personal, web development
-tags: 
-  - blogging
-  - jekyll
-imagefeature: "website-speed.jpg"
+title: "Reply To user via C#"
+description: "C# programming"
+headline: mail sender
+categories: 
+  - engineering
+  - "personal, web development"
+tags: mail ReplyTo
+imagefeature: ""
 imagecredit: spreadeffect.com
 imagecreditlink: "http://www.spreadeffect.com/blog/improve-website-speed/"
 comments: false
-mathjax: null
+mathjax: false
 featured: true
 published: true
 ---
 
->&quot;The beginning is the most important part of the work.&quot;
-><small><cite title="Plato">Plato</cite></small>
+I worked for a client for him we have made a support page to get the feedback from the Page. Where the user will submit the query which will be send to the client.
+The client just reply back to the user. But the problem is we are using gmail account to send mail to the client and when the client reply backs its not reaching the user its was coming to us.
 
-I have been away looking for blogging, suddenly today it dawned upon me that I need to start writing/posting. I thought about blogging, Wordpress flashed in my mind. Well, I wanted something that is easy to maintain and fun in doing, So I searched and found jekyll + github.io is the new trend(Since I was not aware of this, I am going for it). And this gives the benefit of not facing issues like high-traffic and high CPU load and unexpected spikes in my server. Well, those weren’t too much trouble, I would avoid fixing those bugs if I was busy, and sometimes I would leave the system untouched for 2 days straight and let the server admins frown and try to mitigate the outage. .
 
-So Let me say where to look and bring your blog up and running in no time.
+> private static Task MailSender(string to= "user@gmail.com", string replyTo= "customer@gmail.com", string message="test message",string subject = "Test Subject")
+        {
+            const string emailServer = "smtp.gmail.com";
+            const string emailUser = "reports@gmail.com";
+            const string emailPassword = "passoword";
 
-Check out the links
+            var mailMsg = new System.Net.Mail.MailMessage();
 
->[Hosting websites with GitHub](https://www.youtube.com/watch?v=D6VFF8Rsyao) 
+            // To
+            mailMsg.To.Add(new System.Net.Mail.MailAddress(to, ""));
 
->[Jekyll tutorial - basic static blog using jekyll](https://www.youtube.com/watch?v=sxiQmHlogdg) 
+            // From
+            mailMsg.From = new System.Net.Mail.MailAddress("donotreply@gmail.com", "Product Support");
+                      
+            **//mailMsg.ReplyTo = new MailAddress(replyTo);//obsolute
+            mailMsg.ReplyToList.Add(new MailAddress(""));**
+            
+            // Subject and multipart/alternative Body
+            mailMsg.Subject = subject;
+            string html = message;
+            mailMsg.AlternateViews.Add(System.Net.Mail.
+            AlternateView.CreateAlternateViewFromString(
+            html, null, System.Net.Mime.MediaTypeNames.Text.Html));
 
-Themes
-
->[Jekyll Themes](http://jekyllthemes.org)
-
->[Buiding static site step by step](http://code.tutsplus.com/tutorials/building-static-sites-with-jekyll--net-22211)
-
+            // Init SmtpClient and send
+            var smtpClient = new System.Net.Mail.SmtpClient(emailServer, Convert.ToInt32(587));
+            var credentials = new System.Net.NetworkCredential(emailUser, emailPassword);
+            smtpClient.Credentials = credentials;
+            smtpClient.EnableSsl = true;
+            //smtpClient.Send(mailMsg);
+            return Task.Factory.StartNew(() = smtpClient.SendAsync(mailMsg, "token"));
+        }
 
