@@ -4,8 +4,7 @@ title: "Reply To user via C#"
 description: "C# programming"
 headline: mail sender
 categories: 
-  - engineering
-  - personal
+  - engineering 
   - "web development"
 tags: mail ReplyTo
 imagefeature: ""
