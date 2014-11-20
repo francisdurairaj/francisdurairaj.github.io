@@ -5,11 +5,12 @@ description: "C# programming"
 headline: mail sender
 categories: 
   - engineering
-  - "personal, web development"
+  - personal
+  - "web development"
 tags: mail ReplyTo
 imagefeature: ""
-imagecredit: spreadeffect.com
-imagecreditlink: "http://www.spreadeffect.com/blog/improve-website-speed/"
+imagecredit: 
+imagecreditlink: ""
 comments: true
 mathjax: false
 featured: true
