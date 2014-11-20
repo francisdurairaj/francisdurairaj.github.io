@@ -10,7 +10,7 @@ tags: mail ReplyTo
 imagefeature: ""
 imagecredit: spreadeffect.com
 imagecreditlink: "http://www.spreadeffect.com/blog/improve-website-speed/"
-comments: false
+comments: true
 mathjax: false
 featured: true
 published: true
@@ -59,3 +59,4 @@ On Adding the given line we are getting the reply to client directly as given be
 	//mailMsg.ReplyTo = new MailAddress(replyTo);//obsolute
 	mailMsg.ReplyToList.Add(new MailAddress(replyTo));
 {% endhighlight %}
+![ReplytoImage](/images/ReplytoImage.png)
