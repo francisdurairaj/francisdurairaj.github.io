@@ -3,13 +3,15 @@ layout: post
 title: First Commit
 description: "Its ON, baby"
 headline: "Let's Fire up the Engines"
-categories: personal, web development
+categories: 
+	- personal
+	- "web development"
 tags: 
   - blogging
-  - jekyll
-imagefeature: "website-speed.jpg"
-imagecredit: spreadeffect.com
-imagecreditlink: "http://www.spreadeffect.com/blog/improve-website-speed/"
+  - jekyll  
+imagefeature: ""
+imagecredit: 
+imagecreditlink: ""
 comments: false
 mathjax: null
 featured: true
